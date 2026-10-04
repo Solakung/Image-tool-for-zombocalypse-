@@ -10,7 +10,7 @@ p.n{color:#9aa;font-size:13px}input[type=file]{display:none}
 </style></head><body>
 <h1>🧟 ตัวแปลงภาพ → WebP</h1>
 <p class="n">ทำงานในเครื่องคุณทั้งหมด ไม่อัปโหลดไปไหน</p>
-<select id="grp"><option value="npc">กลุ่ม NPC (12 ภาพ: มิรา 7 + เคน 5)</option><option value="boss">กลุ่มบอสโซน (9 ภาพ)</option><option value="zone">กลุ่มหัวโซน (10 ภาพ)</option></select>
+<select id="grp"><option value="npc">กลุ่ม NPC (12 ภาพ: มิรา 7 + เคน 5)</option><option value="boss">กลุ่มบอสโซน (9 ภาพ)</option><option value="wb">กลุ่มบอสโลก (6 ภาพ)</option><option value="zone">กลุ่มหัวโซน (10 ภาพ)</option></select>
 <p class="n" id="need"></p>
 <label class="f">① เลือกภาพจากเครื่อง (เลือกหลายภาพพร้อมกัน)<input id="pick" type="file" accept="image/*" multiple></label>
 <select id="sort"><option value="time">เรียงตามเวลาที่ไฟล์ถูกสร้าง (เก่า→ใหม่)</option><option value="name">เรียงตามชื่อไฟล์</option></select>
@@ -21,6 +21,7 @@ p.n{color:#9aa;font-size:13px}input[type=file]{display:none}
 const G={
  npc:{w:512,h:512,top:true,names:["mira_calm","mira_smirk","mira_smile","mira_sad","mira_tired","mira_angry","mira_shock","kane_calm","kane_angry","kane_shock","kane_smile","kane_tired"]},
  boss:{w:768,h:400,names:["ruins","mall","hospital","police","forest","factory","port","base","tunnel"]},
+ wb:{w:768,h:400,names:["hungry","mad","king","mutant","tyrant","horde"]},
  zone:{w:800,h:300,names:["safe","ruins","mall","hospital","police","forest","factory","port","base","tunnel"]}};
 const $=i=>document.getElementById(i);let files=[];
 function sorted(){const a=[...files];a.sort($('sort').value==='name'?(x,y)=>x.name.localeCompare(y.name,undefined,{numeric:true}):(x,y)=>x.lastModified-y.lastModified);return a}
